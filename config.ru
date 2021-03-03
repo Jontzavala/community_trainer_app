@@ -3,6 +3,6 @@ require './config/environment'
 
 
 use Rack::MethodOverride
-use UsersController
+use UserController
 use WorkoutsController
 run ApplicationController

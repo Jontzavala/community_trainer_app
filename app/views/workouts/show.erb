@@ -1,0 +1,21 @@
+<div class="jumbotron">
+<h1 class="display-3"><%= @workout.title %></h1>
+<p class="lead"><strong>Description: </strong> <%=@workout.description%></p>
+<hr class="my-4">
+<p>More Details</p>
+<ul>
+  <li><%=@workout.duration%></li>
+</ul>
+
+ <a class="btn btn-info btn-sm" href="/workouts/<%= @workout.id %>/edit" role="button">Edit Workout</a>
+ <br>
+ <% if @workout.user_id == @user.id %>
+<form method="POST" action="/workouts/<%= @workout.id %>/delete">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<button type="submit" class="btn btn-danger btn-sm">Delete Workout</button>
+</form>
+<% end %>
+</div>
+<% if @workout.user_id == @user.id %>
+  <div class="text-right"><a class="btn btn-success" style="margin: 20px" href="/workouts" role="button">< Back to My Workout List</a></div>
+<% end %>

@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-      redirect to '/workouts'
+      redirect '/workouts'
     else
       erb :index
     end
@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      !!sessions[:user_id]
+      !!session[:user_id]
     end
     
     def current_user

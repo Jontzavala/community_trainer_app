@@ -1,0 +1,19 @@
+<h1>Editing <%= current_user.username %>'s <%= @workout.title %></h1>
+<form action="/workouts/<%= @workout.id %>/edit" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="title">Title *</label>
+    <input type="text" class="form-control" id="title" name="title" value="<%= @workout.title %>" required>
+  </div>
+  
+ <div class="form-group">
+    <label for="description">Description *</label>
+    <input type="text" class="form-control" id="description" name="description" value="<%= @workout.description %>" required>
+ </div>
+ <div class="form-group">
+    <label for="platform">Duration *</label>
+    <input type="text" class="form-control" id="duration" name="duration" value="<%= @workout.duration %>" required>
+ </div>
+  <br><br>
+<button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Save Your Changes</button>
+  </form>

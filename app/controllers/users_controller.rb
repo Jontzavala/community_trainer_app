@@ -1,7 +1,7 @@
 class UserController < ApplicationController
     get '/signup' do
         if logged_in?
-            redirect to '/workouts'
+            redirect '/workouts'
         else
             erb :'users/signup'
         end
@@ -11,17 +11,17 @@ class UserController < ApplicationController
         user = User.new(params)
         if user.save
             flash[:notice] = "You have succesfully signed up! Lets get in shape!"
-            sesssion[:user_id] = user.id
-            redirect to '/workouts'
+            session[:user_id] = user.id
+            redirect '/workouts'
         else
-            flash.now[:error] = "Something went wrong, pleas try again"
+            flash.now[:error] = "Something went wrong, please try again"
             erb :'users/signup'
         end
     end
 
     get '/login' do
         if logged_in?
-            redirect to '/workouts'
+            redirect '/workouts'
         else
             erb :'users/login'
         end
@@ -32,7 +32,7 @@ class UserController < ApplicationController
         if @current_user && @current_user.authenticate(params[:password])
             sesssion[:user_id] = @current_user.id
             flash[:notice] = "You're logged in! Lets start working out!"
-            redirect to '/workouts'
+            redirect '/workouts'
         else
             if @current_user
                 flash.now[:error] = "Something went wrong, please try again"
@@ -47,9 +47,9 @@ class UserController < ApplicationController
     get '/logout' do
         if logged_in?
             session.clear
-            redirect to '/'
+            redirect '/'
         else
-            redirect to '/'
+            redirect '/'
         end
     end
 
