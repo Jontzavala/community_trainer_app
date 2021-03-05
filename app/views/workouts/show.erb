@@ -1,8 +1,51 @@
+<html>
+  <head>
+    <style>
+
+    html{
+      background:black;
+    }
+
+    div.text-right {
+      background:black;
+    }
+
+    body.w3-black {
+      background:black;
+    }
+
+    div.jumbotron {
+      background:black;
+      color:white;
+    }
+
+    a.btn.btn-success {
+         background-color:black;
+         border-color: #0275D8;
+    }
+
+    a.btn.btn-info.btn-sm {
+      background-color:green;
+      border-color:green;
+    }
+
+
+    </style>
+  </head>
+  <body>
+</div>
+
+
+
+
+
+
+
 <div class="jumbotron">
 <h1 class="display-3"><%= @workout.title %></h1>
 <p class="lead"><strong>Description: </strong> <%=@workout.description%></p>
 <hr class="my-4">
-<p>More Details</p>
+<p>Duration</p>
 <ul>
   <li><%=@workout.duration%></li>
 </ul>

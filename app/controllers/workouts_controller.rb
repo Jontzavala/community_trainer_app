@@ -54,7 +54,7 @@ class WorkoutsController < ApplicationController
 
     delete '/workouts/:id/delete' do
         @workout = Workout.find_by_id(params[:id])
-        if logged_in? && workout.user_id == current_user.id
+        if logged_in? && @workout.user_id == current_user.id
             @workout.destroy
         end
         redirect '/workouts'

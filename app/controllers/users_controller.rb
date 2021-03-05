@@ -30,7 +30,7 @@ class UserController < ApplicationController
     post '/login' do
         @current_user = User.find_by(:username => params[:username], :email => params[:email])
         if @current_user && @current_user.authenticate(params[:password])
-            sesssion[:user_id] = @current_user.id
+            session[:user_id] = @current_user.id
             flash[:notice] = "You're logged in! Lets start working out!"
             redirect '/workouts'
         else
