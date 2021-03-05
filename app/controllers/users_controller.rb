@@ -20,11 +20,7 @@ class UserController < ApplicationController
     end
 
     get '/login' do
-        if logged_in?
-            redirect '/workouts'
-        else
-            erb :'users/login'
-        end
+        erb :'users/login'
     end
 
     post '/login' do
