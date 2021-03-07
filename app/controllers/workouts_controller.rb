@@ -47,8 +47,8 @@ class WorkoutsController < ApplicationController
 
     patch '/workouts/:id/edit' do
         redirect_to_if_not_logged_in
+        @workout = Workout.find_by_id(params[:id])
         if logged_in? && @workout.user_id == current_user.id
-            @workout = Workout.find_by_id(params[:id])
             @workout.title = params[:title]
             @workout.description = params[:description]
             @workout.duration = params[:duration]
